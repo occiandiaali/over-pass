@@ -9,10 +9,10 @@ import {
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
 
-export default function Dashboard() {
+export default function Overview() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 w-full md:w-full">
-      <div className="container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-72 h-40 md:w-full md:h-64 p-6">
+      <div className="container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-72 h-40 md:w-64 md:h-64 p-6">
         <h2 className="text-lg md:text-xl font-bold">75%</h2>
         <h4>viable outreach</h4>
         <div className="flex flex-row justify-around">
@@ -24,15 +24,17 @@ export default function Dashboard() {
           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-green-500 mt-8 md:mt-12" />
         </div>
       </div>
-      <div className="container bg-white flex border border-gray-300 shadow appearance-none rounded mx:auto items-center w-72 h-40 md:w-full md:h-64 p-6">
+      <div className="container bg-white flex border border-gray-300 shadow appearance-none rounded mx:auto items-center w-72 h-40 md:w-64 md:h-64 p-6">
         <h2 className=" text-lg md:text-2xl font-bold">37%</h2>
-        <ArrowsUpDownIcon className="w-8 h-8 text-green-500 mr-6" />
-        <h2 className=" text-lg md:text-2xl font-bold">17%</h2>
-        <ArrowsUpDownIcon className="w-8 h-8 text-red-500 mr-6" />
-        <h2 className=" text-lg md:text-2xl font-bold">55%</h2>
-        <ArrowsUpDownIcon className="w-8 h-8 text-green-500" />
+        <div className="flex flex-row justify-around">
+          <ArrowsUpDownIcon className="w-8 h-8 text-green-500 mr-6" />
+          <h2 className=" text-lg md:text-2xl font-bold">17%</h2>
+          <ArrowsUpDownIcon className="w-8 h-8 text-red-500 mr-6" />
+          <h2 className=" text-lg md:text-2xl font-bold">55%</h2>
+          <ArrowsUpDownIcon className="w-8 h-8 text-green-500" />
+        </div>
       </div>
-      <div className="container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-72 h-40 md:w-full md:h-64 p-6">
+      <div className="container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-72 h-40 md:w-64 md:h-64 p-6">
         <h2 className="text-lg md:text-xl font-bold">19% </h2>
         <h4>rejected contacts</h4>
         <div className="flex flex-row justify-around">
