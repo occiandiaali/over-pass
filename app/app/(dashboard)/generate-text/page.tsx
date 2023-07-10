@@ -13,7 +13,7 @@ export default function AIFeat() {
             Prompt
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="ad-prompt"
             type="text"
             placeholder="Product description"
@@ -53,7 +53,7 @@ export default function AIFeat() {
             Prompt
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded border-gray-300 w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="name-prompt"
             type="text"
             placeholder="e.g. A home coffee maker"

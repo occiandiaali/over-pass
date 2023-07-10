@@ -14,22 +14,22 @@ export type NavItem = {
 export const sidebarNavLinks: NavItem[] = [
   {
     label: "Dashboard",
-    href: "/",
+    href: "/app/overview",
     icon: <HomeIcon className="w-6 h-6" />,
   },
   {
     label: "Generate new",
-    href: "/generate-text",
+    href: "/app/generate-text",
     icon: <FolderIcon className="w-6 h-6" />,
   },
   {
     label: "Teams",
-    href: "/teams",
+    href: "/app/teams",
     icon: <UserGroupIcon className="w-6 h-6" />,
   },
   {
     label: "FAQs",
-    href: "/faq",
+    href: "/app/faqs",
     icon: <HandRaisedIcon className="w-6 h-6" />,
   },
 ];

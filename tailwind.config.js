@@ -145,10 +145,10 @@ module.exports = {
       animation: {
         wiggle: "wiggle 0.8s both",
       },
-    },
-    gridTemplateColumns: {
-      sidebar: "300px auto", // for sidebar  layout
-      "sidebar-collapsed": "64px auto",
+      gridTemplateColumns: {
+        sidebar: "300px auto", // for sidebar  layout
+        "sidebar-collapsed": "64px auto",
+      },
     },
   },
   safelist: [

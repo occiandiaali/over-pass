@@ -1,10 +1,19 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import DashboardLayout from "./app/(dashboard)/layout";
+
+export default function OverPassApp({ children }) {
+  return <DashboardLayout>{children}</DashboardLayout>;
+}
+
+/**
+ * 
+ * import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import LogoutButton from "../components/LogoutButton";
 import SupabaseLogo from "../components/SupabaseLogo";
 import NextJsLogo from "../components/NextJsLogo";
 import Overview from "./app/(dashboard)/page";
+import DashboardLayout from "./app/(dashboard)/layout";
 
 // const resources = [
 //   {
@@ -46,7 +55,11 @@ export default async function Index() {
   //   data: { user },
   // } = await supabase.auth.getUser();
 
-  return <Overview />;
+  return (
+    <DashboardLayout>
+      <Overview />
+    </DashboardLayout>
+  );
 
   // return (
   //   <div className="w-full flex flex-col items-center">
@@ -190,3 +203,6 @@ export default async function Index() {
   //   </div>
   // )
 }
+
+ * 
+ */

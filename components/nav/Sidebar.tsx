@@ -67,7 +67,7 @@ const Sidebar = ({
         >
           <Suspense fallback={<div>wait...</div>}>
             <div className="flex gap-4 items-center h-11 overflow-hidden">
-              <Link href="/account" className="text-indigo-200 text-sm">
+              <Link href="/app/account" className="text-indigo-200 text-sm">
                 <Image
                   src={
                     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
@@ -81,7 +81,7 @@ const Sidebar = ({
               {!collapsed && (
                 <div className="flex flex-col ">
                   <span className="text-indigo-50 my-0">Teem Chef</span>
-                  <Link href="/account" className="text-indigo-200 text-sm">
+                  <Link href="/app/account" className="text-indigo-200 text-sm">
                     View Profile
                   </Link>
                 </div>
@@ -125,7 +125,7 @@ const Sidebar = ({
         >
           <div className="flex flex-row gap-4 items-center mb-20 h-11 md:mb-14 overflow-hidden">
             <Link
-              href="/account"
+              href="/app/account"
               className="text-indigo-200 text-sm flex gap-2"
             >
               <ArrowRightOnRectangleIcon className="w-8 h-8" />
