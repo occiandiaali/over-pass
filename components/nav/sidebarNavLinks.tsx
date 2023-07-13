@@ -2,7 +2,9 @@ import React from "react";
 import {
   FolderIcon,
   HandRaisedIcon,
+  HandThumbUpIcon,
   HomeIcon,
+  MagnifyingGlassIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/outline";
 // define a NavItem prop
@@ -13,19 +15,19 @@ export type NavItem = {
 };
 export const sidebarNavLinks: NavItem[] = [
   {
-    label: "Dashboard",
+    label: "Home",
     href: "/app/overview",
     icon: <HomeIcon className="w-6 h-6" />,
   },
   {
-    label: "Generate new",
+    label: "Liked Topics",
     href: "/app/generate-text",
-    icon: <FolderIcon className="w-6 h-6" />,
+    icon: <HandThumbUpIcon className="w-6 h-6" />,
   },
   {
-    label: "Teams",
+    label: "Search Topics",
     href: "/app/teams",
-    icon: <UserGroupIcon className="w-6 h-6" />,
+    icon: <MagnifyingGlassIcon className="w-6 h-6" />,
   },
   {
     label: "FAQs",

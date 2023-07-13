@@ -4,6 +4,7 @@ import classNames from "classnames";
 import React, { ReactNode, useState } from "react";
 import Navbar from "@/components/nav/Navbar";
 import Sidebar from "@/components/nav/Sidebar";
+import Loading from "./loading";
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
   const [collapsed, setSidebarCollapsed] = useState(false);
@@ -24,7 +25,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
       />
       <div className="">
         <Navbar onMenuButtonClick={() => setShowSidebar((prev) => !prev)} />
-        {children}
+        {!children ? <Loading /> : children}
       </div>
     </div>
   );
