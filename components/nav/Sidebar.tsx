@@ -26,8 +26,7 @@ const Sidebar = ({
   return (
     <div
       className={classNames({
-        "bg-indigo-700 text-zinc-50 fixed md:static md:translate-x-0 z-20":
-          true,
+        "bg-slate-700 text-zinc-50 fixed md:static md:translate-x-0 z-20": true,
         "transition-all duration-300 ease-in-out": true,
         "w-[300px]": !collapsed,
         "w-16": collapsed,
@@ -59,7 +58,7 @@ const Sidebar = ({
         <div
           className={classNames({
             // "grid place-content-stretch p-4 ": true,
-            "flex items-center md:h-30 border-b border-b-indigo-800 transition-none":
+            "flex items-center md:h-30 border-b border-b-slate-800 transition-none":
               true,
             "p-4 justify-between": !collapsed,
             "py-4 justify-center": collapsed,
@@ -89,7 +88,7 @@ const Sidebar = ({
             </div>
           </Suspense>
           <button
-            className="grid place-content-center hover:bg-indigo-800 w-10 h-10 rounded-full opacity-0 md:opacity-100"
+            className="grid place-content-center hover:bg-slate-800 w-10 h-10 rounded-full opacity-0 md:opacity-100"
             onClick={() => setCollapsed(!collapsed)}
           >
             <Icon className="w-5 h-5" />
@@ -106,7 +105,7 @@ const Sidebar = ({
                 <li
                   key={index}
                   className={classNames({
-                    "text-indigo-100 hover:bg-indigo-900 flex": true, //colors
+                    "text-indigo-100 hover:bg-slate-900 flex": true, //colors
                     "transition-colors duration-300": true, //animation
                     "rounded-md p-2 mx-3 gap-4 ": !collapsed,
                     "rounded-full p-2 mx-3 w-10 h-10": collapsed,

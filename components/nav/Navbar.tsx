@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
+
 type Props = {
   /**
    * Allows the parent component to modify the state when the

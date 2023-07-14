@@ -1,6 +1,10 @@
 import DashboardLayout from "./app/(dashboard)/layout";
 
-export default function OverPassApp({ children }) {
+export default function OverPassApp({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <DashboardLayout>{children}</DashboardLayout>;
 }
 
