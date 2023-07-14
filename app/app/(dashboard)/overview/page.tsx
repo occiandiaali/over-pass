@@ -1,120 +1,17 @@
-// import Image from "next/image";
-// import {
-//   ArrowsUpDownIcon,
-//   InboxStackIcon,
-//   ClipboardDocumentListIcon,
-//   LightBulbIcon,
-//   PuzzlePieceIcon,
-//   UserPlusIcon,
-//   UserGroupIcon,
-// } from "@heroicons/react/24/solid";
-
-// export default function Overview() {
-//   return (
-//     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 w-full md:w-full">
-//       <div className="container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-64 h-40 md:w-full md:h-56 p-6">
-//         <h2 className="text-lg md:text-xl font-bold">75%</h2>
-//         <h4>viable outreach</h4>
-//         <div className="flex flex-row justify-around">
-//           <InboxStackIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-red-500 mr-6 mt-8 md:mt-12" />
-//           <ClipboardDocumentListIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-green-500 mr-6 mt-8 md:mt-12" />
-//           <LightBulbIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-green-500 mt-8 md:mt-12" />
-//         </div>
-//       </div>
-//       <div className="container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-64 h-40 md:w-full md:h-56 p-6">
-//         <h2 className="text-lg md:text-xl font-bold">75%</h2>
-//         <h4>viable outreach</h4>
-//         <div className="flex flex-row justify-around">
-//           <InboxStackIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-red-500 mr-6 mt-8 md:mt-12" />
-//           <ClipboardDocumentListIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-green-500 mr-6 mt-8 md:mt-12" />
-//           <LightBulbIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-green-500 mt-8 md:mt-12" />
-//         </div>
-//       </div>
-//       <div className="container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-64 h-40 md:w-full md:h-56 p-6">
-//         <h2 className="text-lg md:text-xl font-bold">19% </h2>
-//         <h4>rejected contacts</h4>
-//         <div className="flex flex-row justify-around">
-//           <PuzzlePieceIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-red-500 mr-6 mt-8 md:mt-12" />
-//           <UserPlusIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-green-500 mr-6 mt-8 md:mt-12" />
-//           <UserGroupIcon className="w-8 h-8 md:w-12 md:h-12 text-blue-500 mt-6 md:mt-14" />
-//           <ArrowsUpDownIcon className="w-4 h-4 md:w-6 md:h-6 text-red-500 mr-6 mt-8 md:mt-12" />
-//         </div>
-//       </div>
-
-//       <div className="md:col-span-2 container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-64 h-48 md:w-full md:h-72 p-6">
-//         <h2 className="font-bold">Quarterly summary</h2>
-//         <Image
-//           src={"/line-graph2.png"}
-//           alt="graph1"
-//           width={260}
-//           height={200}
-//           className="mt-2 md:mt-4"
-//         />
-//         {/* <div className="container border border-gray-600 shadow appearance-none rounded flex-row-reverse w-24 h-24 md:w-48 md:h-24 p-4">
-//           <ArrowsUpDownIcon className="w-12 h-12 text-orange-600" />
-//         </div> */}
-//       </div>
-//       <div className="container bg-white border border-gray-300 shadow appearance-none rounded mx:auto items-center w-64 h-40 md:w-full md:h-60 p-6">
-//         <h2>Animated swipe cards with overlay</h2>
-//       </div>
-//     </div>
-//   );
-// }
 "use client";
 
-import { createRef, useEffect, useState } from "react";
-import classNames from "classnames";
+import { useEffect, useState } from "react";
 import { AcademicCapIcon, FireIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
 import getSupabaseUser from "@/app/utils/supabase-accessors/supabase-user";
-//import supabaseServerClient from "@/app/lib/supabase-accessors/server-client";
+
 import supabaseBrowserClient from "@/app/utils/supabase-accessors/browser-client";
 
 export default function Overview() {
-  const [capShows, setCapShows] = useState(false);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [topic, setTopic] = useState("");
   const [concept, setConcept] = useState("");
   const [queryResponse, setQueryResponse] = useState(null);
-  const textRef = createRef();
-
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   const data = new FormData(e.target);
-  //   const value = Object.fromEntries(data.entries());
-
-  //   if (!value.concept) {
-  //     value.concept = "random";
-  //   }
-
-  //   const res = await fetch("/api/query", {
-  //     method: "POST",
-  //     body: JSON.stringify(value),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   if (res.ok) {
-  //     setLoading(false);
-  //     const json = await res.json();
-  //     console.log(`HandleSubmit data: ${json.data}`);
-  //     const qRes = json.data.response;
-  //     setQueryResponse(qRes);
-  //   } else {
-  //     setLoading(false);
-  //     console.log("HandleSubmit errorred");
-  //   }
-  // };
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -139,10 +36,6 @@ export default function Overview() {
   };
 
   let showCap = concept !== "" && topic.length > 3;
-
-  // function handleSend() {
-  //   topic.length < 3 && concept === "" ? setCapShows(false) : setCapShows(true);
-  // }
 
   async function determineUser() {
     const user = await getSupabaseUser(supabaseBrowserClient);
@@ -242,15 +135,6 @@ export default function Overview() {
             </p>
           )}
         </div>
-        {/* <div className="flex justify-center p-6 text-6xl w-full h-40 md:w-full md:h-64 bg-gray-100 border-2 border-gray-300 rounded-xl">
-          <Image
-            src="/power.jpg"
-            alt="wind turbines in a field"
-            width={500}
-            height={256}
-            className="w-full md:h-56 md:pb-2"
-          />
-        </div> */}
       </div>
     </div>
   );
