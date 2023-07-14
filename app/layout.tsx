@@ -22,9 +22,6 @@ export default async function RootLayout({
   return (
     <html lang="en" className="h-full bg-gray-100">
       <body className="h-full">
-        {/* <main className="min-h-screen bg-background flex flex-col items-center">
-          {children}
-        </main> */}
         <SupabaseProvider>{children}</SupabaseProvider>
       </body>
     </html>

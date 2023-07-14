@@ -38,23 +38,6 @@ const Sidebar = ({
           "flex flex-col justify-between h-screen sticky inset-0 w-full": true,
         })}
       >
-        {/* logo and collapse button */}
-        {/* <div
-          className={classNames({
-            "flex items-center border-b border-b-indigo-800 transition-none":
-              true,
-            "p-4 justify-between": !collapsed,
-            "py-4 justify-center": collapsed,
-          })}
-        >
-          {!collapsed && <span className="whitespace-nowrap">OverPass</span>}
-          <button
-            className="grid place-content-center hover:bg-indigo-800 w-10 h-10 rounded-full opacity-0 md:opacity-100"
-            onClick={() => setCollapsed(!collapsed)}
-          >
-            <Icon className="w-5 h-5" />
-          </button>
-        </div> */}
         <div
           className={classNames({
             // "grid place-content-stretch p-4 ": true,

@@ -1,8 +1,6 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-
-import supabaseServerClient from "@/app/utils/supabase-accessors/server-client";
 import { useRouter } from "next/navigation";
 import supabaseBrowserClient from "@/app/utils/supabase-accessors/browser-client";
 
