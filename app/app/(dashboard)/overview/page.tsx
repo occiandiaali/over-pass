@@ -1,10 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AcademicCapIcon, FireIcon } from "@heroicons/react/24/outline";
+import {
+  AcademicCapIcon,
+  ArrowPathIcon,
+  FireIcon,
+  HandThumbUpIcon,
+} from "@heroicons/react/24/outline";
 import getSupabaseUser from "@/app/utils/supabase-accessors/supabase-user";
 
 import supabaseBrowserClient from "@/app/utils/supabase-accessors/browser-client";
+import mockAnsArray from "./simulators";
 
 export default function Overview() {
   const [user, setUser] = useState(null);
@@ -12,30 +18,31 @@ export default function Overview() {
   const [topic, setTopic] = useState("");
   const [concept, setConcept] = useState("");
   const [queryResponse, setQueryResponse] = useState(null);
+  const [ansGotten, setAnsGotten] = useState("");
 
-  const handleSubmit = async () => {
-    setLoading(true);
+  // const handleSubmit = async () => {
+  //   setLoading(true);
 
-    const res = await fetch("/api/query", {
-      method: "POST",
-      body: JSON.stringify({ topic, concept }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (res.ok) {
-      setLoading(false);
-      const json = await res.json();
-      console.log(`HandleSubmit data: ${json.data}`);
-      const qRes = json.data.response;
-      setQueryResponse(qRes);
-    } else {
-      setLoading(false);
-      console.log("HandleSubmit errorred");
-    }
-  };
+  //   const res = await fetch("/api/query", {
+  //     method: "POST",
+  //     body: JSON.stringify({ topic, concept }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   });
+  //   if (res.ok) {
+  //     setLoading(false);
+  //     const json = await res.json();
+  //     console.log(`HandleSubmit data: ${json.data}`);
+  //     const qRes = json.data.response;
+  //     setQueryResponse(qRes);
+  //   } else {
+  //     setLoading(false);
+  //     console.log("HandleSubmit errorred");
+  //   }
+  // };
 
-  let showCap = concept !== "" && topic.length > 3;
+  let showCap = concept !== "" && topic.length > 3 && ansGotten === "";
 
   async function determineUser() {
     const user = await getSupabaseUser(supabaseBrowserClient);
@@ -43,8 +50,30 @@ export default function Overview() {
   }
 
   useEffect(() => {
-    determineUser();
+    // determineUser();
   }, []);
+
+  function appearChars() {
+    let randomIdx = Math.floor(Math.random() * mockAnsArray.length);
+    let randomElement = mockAnsArray[randomIdx];
+    setAnsGotten(randomElement);
+  }
+
+  const handleSimulation = () => {
+    if (
+      concept === "soccer" ||
+      concept === "alexander" ||
+      concept === "garden"
+    ) {
+      appearChars();
+    }
+  };
+
+  const resetAfterResponse = () => {
+    setTopic("");
+    setConcept("");
+    setAnsGotten("");
+  };
 
   return (
     <div className="flex flex-col p-4 items-center justify-center w-screen md:w-full">
@@ -53,12 +82,6 @@ export default function Overview() {
           Instructions
         </h4>
         <p className="text-gray-600">In 3 simple steps:</p>
-        {showCap ? (
-          <AcademicCapIcon
-            onClick={handleSubmit}
-            className="w-6 h-6 md:w-10 md:h-10 text-slate-700 absolute right-8 animate-bounce md:cursor-pointer"
-          />
-        ) : null}
 
         <ol>
           <li className="text-black pt-4 pb-1">
@@ -118,7 +141,7 @@ export default function Overview() {
           </div>
         </form>
 
-        <div className="flex justify-center p-6 text-6xl w-full h-40 md:w-full md:h-72 bg-gray-100 border-2 border-gray-300 rounded-xl">
+        {/* <div className="flex justify-center p-6 text-6xl w-full h-40 md:w-full md:h-72 bg-gray-100 border-2 border-gray-300 rounded-xl">
           3
           {user ? (
             <FireIcon className="w-6 h-6 md:w-10 md:h-10" />
@@ -129,6 +152,35 @@ export default function Overview() {
           )}
           {queryResponse ? (
             <p>{queryResponse}</p>
+          ) : (
+            <p className="text-slate-300 text-sm md:text-xl md:mt-24">
+              AI Response here..
+            </p>
+          )}
+        </div> */}
+        {showCap ? (
+          <AcademicCapIcon
+            // onClick={handleSubmit}
+            onClick={handleSimulation}
+            className="w-8 h-8 md:w-10 md:h-10 text-slate-700 absolute right-8 md:right-8 md:mb-8 animate-bounce md:cursor-pointer"
+          />
+        ) : null}
+
+        <div className="flex p-6 md:p-2 w-full h-64 md:w-full md:h-72 bg-gray-100 border-2 border-gray-300 rounded-xl">
+          3
+          {ansGotten ? (
+            <div className="relative h-40 w-40 md:pt-6 md:pl-4 right-4">
+              <ArrowPathIcon
+                className="text-slate-700 bottom-0 left-0 mb-4 md:mb-6 w-8 h-8 cursor-pointer"
+                onClick={resetAfterResponse}
+              />
+              <HandThumbUpIcon className="bottom-8 left-0 text-slate-700 animate-pulse opacity-75 w-8 h-8 cursor-pointer" />
+            </div>
+          ) : null}
+          {ansGotten ? (
+            <p className="overflow-y-scroll md:p-4 text-sm text-slate-700 font-mono overflow-hidden whitespace-normal animate-typing">
+              {ansGotten}
+            </p>
           ) : (
             <p className="text-slate-300 text-sm md:text-xl md:mt-24">
               AI Response here..

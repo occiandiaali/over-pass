@@ -78,7 +78,7 @@ export async function POST(req: any, res: any) {
       })
       .eq("email", email);
   }
-  return NextResponse.json({
-    data,
-  });
+  // return NextResponse.json({
+  //   data,
+  // });
 }

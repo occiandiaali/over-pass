@@ -130,6 +130,10 @@ module.exports = {
         },
       },
       keyframes: {
+        typing: {
+          from: { width: "0" },
+          to: { width: "14ch" },
+        },
         wiggle: {
           "0%, 100%": {
             transform: "translateX(0%)",
@@ -143,6 +147,7 @@ module.exports = {
         },
       },
       animation: {
+        typing: "typing 2s steps(14)",
         wiggle: "wiggle 0.8s both",
       },
       gridTemplateColumns: {
